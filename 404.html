@@ -1,5 +1,27 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><title>Golfclub Euregio Bad Bentheim</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://www.golfclub-euregio.de/">
-<script>location.replace('https://www.golfclub-euregio.de' + location.pathname + location.search + location.hash);</script>
-<meta http-equiv="refresh" content="0; url=https://www.golfclub-euregio.de/">
-</head><body><p>Weiter zu <a href="https://www.golfclub-euregio.de/">www.golfclub-euregio.de</a></p></body></html>
+<noscript><meta http-equiv="refresh" content="0; url=https://www.golfclub-euregio.de/"></noscript>
+<style>body{font-family:Arial,sans-serif;max-width:34rem;margin:4rem auto;padding:0 1rem;color:#15232a;line-height:1.5}a{color:#1d3843;font-weight:bold}</style>
+<script>
+// Sperre gegen Endlosschleife: Wer gerade erst weitergeschickt wurde, bekommt einen Link statt einer neuen Weiterleitung.
+(function () {
+  var ziel = 'https://www.golfclub-euregio.de' + location.pathname + location.search + location.hash;
+  var zuletzt = 0;
+  try { zuletzt = +sessionStorage.getItem('gce-weiter') || 0; } catch (e) {}
+  if (Date.now() - zuletzt > 60000) {
+    try { sessionStorage.setItem('gce-weiter', Date.now()); } catch (e) {}
+    location.replace(ziel);
+  } else {
+    document.addEventListener('DOMContentLoaded', function () { document.getElementById('hinweis').hidden = false; document.getElementById('link').href = ziel; });
+  }
+})();
+</script>
+</head><body>
+<div id="hinweis" hidden>
+<h1>Golfclub Euregio Bad Bentheim</h1>
+<p>Unsere neue Website ist gerade umgezogen. Bitte öffnen Sie sie hier:</p>
+<p><a id="link" href="https://www.golfclub-euregio.de/">www.golfclub-euregio.de</a></p>
+<p>Klappt es noch nicht, versuchen Sie es bitte in einer Stunde noch einmal.</p>
+</div>
+</body></html>
